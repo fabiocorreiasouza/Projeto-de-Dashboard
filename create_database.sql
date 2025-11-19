@@ -10,7 +10,7 @@ CREATE TABLE Projetos
     id                      INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     norma                   VARCHAR(255) NOT NULL,
     descricao               VARCHAR(255) NOT NULL,
-    datadeaprensentacao     DATE,
+    datadeapresentacao      DATE,
     autor                   TEXT,
     partido                 VARCHAR(50),
     ementa                  TEXT,

@@ -2,14 +2,14 @@ import mysql.connector
 import csv
 import datetime
 
-cnx = mysql.connector.connect(user='root', password=' ', host='localhost', database='Oasis')
+cnx = mysql.connector.connect(user='root', password='dudu2004', host='localhost', database='Oasis')
 cursor = cnx.cursor()
 
 # Mapeia Nomes do CSV (Chave) para Nomes do Banco (Valor)
 column_map = {
     "Norma": "norma",
     "Descricao da Sigla": "descricao",
-    'Data de Apresentacao': 'datadeaprensentacao',
+    'Data de Apresentacao': 'datadeapresentacao',
     "Autor": "autor",
     "Partido": "partido",
     "Ementa": "ementa",
@@ -21,7 +21,7 @@ column_map = {
     "Situação": "situacao"
 }
 
-csv_file_path = './projetos_em_csv/2022.csv'
+csv_file_path = './projetos_em_csv/2025.csv'
 
 with open(csv_file_path, mode='r', encoding='utf-8') as csvfile:
     reader = csv.reader(csvfile)
@@ -66,15 +66,15 @@ with open(csv_file_path, mode='r', encoding='utf-8') as csvfile:
         # Converte a 'Data de Apresentacao'
         if date_index_apresentacao != -1 and values[date_index_apresentacao]:
             try:
-                parsed_date = datetime.datetime.strptime(values[date_index_apresentacao], '%m/%d/%Y')
+                parsed_date = datetime.datetime.strptime(values[date_index_apresentacao], '%Y-%m-%d')
                 values[date_index_apresentacao] = parsed_date.strftime('%Y-%m-%d')
             except (ValueError, TypeError):
                 values[date_index_apresentacao] = None
-        
+
         # Converte a 'Data Último Estado'
         if date_index_ultimo != -1 and values[date_index_ultimo]:
             try:
-                parsed_date = datetime.datetime.strptime(values[date_index_ultimo], '%m/%d/%Y')
+                parsed_date = datetime.datetime.strptime(values[date_index_ultimo], '%Y-%m-%d')
                 values[date_index_ultimo] = parsed_date.strftime('%Y-%m-%d')
             except (ValueError, TypeError):
                 values[date_index_ultimo] = None

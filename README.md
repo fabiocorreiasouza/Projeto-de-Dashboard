@@ -8,3 +8,9 @@ O projeto tem como objetivo importar das API's da Câmara dos Deputados e do Sen
 
 ## Pastas
 - **_projetos_em_csv_**: Pasta para armazenar os CSVs gerados pelo acesso_api.py
+
+## Como rodar o código
+python acess_api.py
+~ cria o banco no computador usando create_database.sql ~
+python insert_data.py
+streamlit run dashboard.py
